@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
+
+// ugiuggkugkgkugkgkjgkjgkg
