@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Home directory
 Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
