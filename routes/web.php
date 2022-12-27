@@ -24,3 +24,5 @@ Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
 Route::get('/formulaire', [Tasks::class, 'formulaire']);
 
 Route::post('/createtask', [Tasks::class, 'createtask']);
+
+Route::get('/liste', [Tasks::class, 'liste_task']);

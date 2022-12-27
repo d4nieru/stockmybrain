@@ -13,6 +13,15 @@ class Tasks extends Controller
         return view ("formulaire");
 
     }
+
+    public function liste_task () {
+        // $user_id=Auth::id();
+        $tasks = Task::all();
+
+        return view ("liste", compact("tasks"));
+
+    }
+
     public function createtask (Request $request)
     {
 
@@ -37,7 +46,7 @@ class Tasks extends Controller
 
         $task->save();
 
-        return redirect("/home");
+        return redirect("/liste");
 
     }
 }
