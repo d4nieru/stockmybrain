@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mainpage;
+use App\Http\Controllers\Tasks;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,6 @@ Route::get('/', function () {
 
 Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
 
-// ugiuggkugkgkugkgkjgkjgkg
+Route::get('/formulaire', [Tasks::class, 'formulaire']);
+
+Route::post('/createtask', [Tasks::class, 'createtask']);
