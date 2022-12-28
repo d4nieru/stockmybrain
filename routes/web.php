@@ -26,3 +26,11 @@ Route::get('/formulaire', [Tasks::class, 'formulaire']);
 Route::post('/createtask', [Tasks::class, 'createtask']);
 
 Route::get('/liste', [Tasks::class, 'liste_task']);
+
+// Route::get('/delete', [Tasks::class, 'delete']);
+
+Route::post('/delete/{id}', [Tasks::class, 'delete']);
+
+Route::get('/edit/{id}', [Tasks::class, 'edit']);
+
+Route::post('/edit/{id}', [Tasks::class, 'editid']);

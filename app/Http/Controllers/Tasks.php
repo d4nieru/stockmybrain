@@ -49,4 +49,33 @@ class Tasks extends Controller
         return redirect("/liste");
 
     }
+
+    public function delete($id){
+
+        $task = Task::find($id);
+
+        $task->delete();
+
+        return redirect("/liste");
+    }
+
+    public function edit($id){
+
+        $task = Task::find($id);
+
+        return view("edit", compact("task"));
+    }
+
+    public function editid(Request $request,$id){
+
+
+        $task = Task::find($id);
+        
+        $task->name = $request->input("nom");
+        $task->description = $request->input("description");
+        $task->importance = $request->input("importance");
+        $task->save();
+
+        return redirect("/liste");
+    }
 }
