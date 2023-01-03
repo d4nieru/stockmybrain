@@ -1,7 +1,7 @@
 
 <form method="POST" action="{{ route('logout') }}">
     @csrf
-    <button class="btn btn-secondary btn-sm" type="submit">Se déconnecter</button>
+    <button class="" type="submit">Se déconnecter</button>
 </form>
 
 <form method="POST" enctype="multipart/form-data" action="/createworkspace">
@@ -11,7 +11,7 @@
     <button type="submit">Créer l'espace de travail</button>
 </form>
 
-<p>Vos espaces de travail</p>
+<h3>Vos tableaux</h3>
 
 @foreach($user->workspaces as $workspace)
     @if($workspace->pivot->workspace_cover_name == null)
@@ -22,8 +22,12 @@
     <br>
     {{ $workspace->workspace_name }}
     <br>
-    <form method="POST" action="/deleteworkspace/{{ $workspace->id }}">
+    <form method="GET" action="/editworkspace/{{ $workspace->id }}">
         @csrf
-        <button type="submit">Supprimer</button>
+        <button class="" type="submit">Modifier le tableau</button>
+    </form>
+    <form method="POST" action="/deleteworkspace/{{ $workspace->id }}" onclick="return confirm('Vous voulez supprimer le tableau ? (En cliquant sur OK, tout sera supprimé définitivement)')">
+        @csrf
+        <button class="" type="submit">Supprimer le tableau</button>
     </form>
 @endforeach

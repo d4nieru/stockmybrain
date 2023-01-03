@@ -62,12 +62,49 @@ class Mainpage extends Controller
         {
             Storage::delete($filename);
 
-            unlink(storage_path('app/public/uploads/'.$filename));
+            unlink(storage_path('app/public/uploads/' . $filename));
         }
 
         $workspace = Workspace::findOrFail($id);
         $workspace->users()->detach();
         $workspace->delete();
+
+        return redirect('/home');
+    }
+
+    public function editworkspace($id)
+    {
+        $workspace = Workspace::find($id);
+
+        return view('editworkspacepage', compact('workspace'));
+    }
+
+    public function posteditworkspace(Request $request, $id)
+    {
+        $request->validate([
+            'new_workspace_name' => 'required',
+            'new_workspace_cover' => 'file|mimes:jpeg,jpg,png'
+        ]);
+
+        $workspace = Workspace::find($id);
+
+        $workspace_cover_name = null;
+        $workspace_cover_path = null;
+
+        if ($request->hasFile('new_workspace_cover')) {
+
+            $workspace_cover_name = $request->file('new_workspace_cover')->getClientOriginalName();
+            $workspace_cover_path = $request->file('new_workspace_cover')->storeAs('public/uploads/', $workspace_cover_name);
+        }
+
+        $new_workspace_name = $request->input("new_workspace_name");
+        Workspace::where('id', $id)->update(['workspace_name' => $new_workspace_name]);
+
+        $user_id = Auth::id();
+
+        $user = User::find($user_id);
+        //$user->workspaces()->sync([$user_id => ['workspace_id' => $id, 'workspace_cover_name' => $workspace_cover_name, 'workspace_cover_path' => $workspace_cover_path]]);
+        $user->workspaces()->updateExistingPivot($workspace->id, ['workspace_cover_name' => $workspace_cover_name, 'workspace_cover_path' => $workspace_cover_path]);
 
         return redirect('/home');
     }

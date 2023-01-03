@@ -23,3 +23,7 @@ Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
 Route::post('/createworkspace', [Mainpage::class, 'createworkspace']);
 
 Route::post('/deleteworkspace/{id}', [Mainpage::class, 'deleteworkspace']);
+
+Route::get('/editworkspace/{id}', [Mainpage::class, 'editworkspace']);
+
+Route::post('/posteditworkspace/{id}', [Mainpage::class, 'posteditworkspace']);
