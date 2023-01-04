@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('workspaces', function (Blueprint $table) {
             $table->id();
             $table->string("workspace_name");
+            $table->string("workspace_cover_name")->nullable();
+            $table->string("workspace_cover_path")->nullable();
             $table->timestamps();
         });
     }

@@ -14,10 +14,10 @@
 <h3>Vos tableaux</h3>
 
 @foreach($user->workspaces as $workspace)
-    @if($workspace->pivot->workspace_cover_name == null)
+    @if($workspace->workspace_cover_name == null)
         <img src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg" alt="default-workspace-image">
     @else
-        <img src="{{ asset('storage/uploads/'.$workspace->pivot->workspace_cover_name) }}" alt="">
+        <img src="{{ asset('storage/uploads/'.$workspace->workspace_cover_name) }}" alt="">
     @endif
     <br>
     {{ $workspace->workspace_name }}

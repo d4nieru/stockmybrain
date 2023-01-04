@@ -6,5 +6,5 @@
     @csrf
     Nouveau nom de l'espace de travail: <input type="text" name="new_workspace_name">
     Nouvelle Image de couverture (optionnel): <input type="file" id="new_workspace_cover" name="new_workspace_cover" accept="image/png, image/jpeg">
-    <button type="submit">Modifier l'espace de travail</button>
+    <button type="submit">Effectuer les modifications</button>
 </form>

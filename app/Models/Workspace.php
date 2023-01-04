@@ -11,6 +11,6 @@ class Workspace extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_workspace')->withPivot('workspace_cover_name', 'workspace_cover_path')->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_workspace')->withTimestamps();
     }
 }
