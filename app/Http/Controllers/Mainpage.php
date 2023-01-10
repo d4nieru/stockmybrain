@@ -109,52 +109,5 @@ class Mainpage extends Controller
         }
     }
 
-    public function manageMembers($id)
-    {
-        $user_id = Auth::id();
-
-        $user = User::find($user_id);
-        $workspace = Workspace::find($id);
-
-        return view('managemembers', compact('user', 'workspace', 'user_id'));
-    }
-
-    public function addUserToWorkspace(Request $request, $id)
-    {
-        $request->validate([
-            'email' => 'required',
-        ]);
-
-        $email = $request->input("email");
-
-        $user = User::where('email', $email)->first();
-
-        if ($user) {
-
-            $user_id = $user->id;
-
-            $workspace = Workspace::find($id);
-
-            $workspace->users()->syncWithoutDetaching($user_id);
-
-            return back();
-            
-        } else {
-
-            return redirect()->back()->with('alert', "L'email n'existe pas dans notre base de données !");
-        }
-
-        
-    }
-
-    public function removeUserFromWorkspace($id, $userid)
-    {
-        $workspace = Workspace::find($id);
-        
-        //echo "ID workspace : ".$id." ID user : ".$userid;
-
-        $workspace->users()->detach($userid);
-        
-        return back();
-    }
+    
 }

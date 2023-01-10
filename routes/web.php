@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mainpage;
+use App\Http\Controllers\UserManagement;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +29,12 @@ Route::get('/editworkspace/{id}', [Mainpage::class, 'editWorkspace']);
 
 Route::post('/posteditworkspace/{id}', [Mainpage::class, 'postEditWorkspace']);
 
-Route::get('/managemembers/{id}', [Mainpage::class, 'manageMembers']);
+Route::get('/managemembers/{id}', [UserManagement::class, 'manageMembers']);
 
-Route::post('/managemembers/{id}', [Mainpage::class, 'postManageMembers']);
+Route::post('/managemembers/{id}', [UserManagement::class, 'postManageMembers']);
 
-Route::post('/addusertoworkspace/{id}', [Mainpage::class, 'addUserToWorkspace']);
+Route::post('/addusertoworkspace/{id}', [UserManagement::class, 'addUserToWorkspace']);
 
-Route::post('/removeuserfromworkspace/{id}/{userid}', [Mainpage::class, 'removeUserFromWorkspace']);
+Route::post('/removeuserfromworkspace/{id}/{listeduserid}/{currentuser}', [UserManagement::class, 'removeUserFromWorkspace']);
+
+Route::post('/transferownership/{id}/{listeduserid}/{currentuser}', [UserManagement::class, 'transferOwnership']);

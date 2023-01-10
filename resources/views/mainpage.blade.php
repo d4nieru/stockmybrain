@@ -22,10 +22,14 @@
     <br>
     {{ $workspace->workspace_name }}
     <br>
-    <form method="GET" action="/managemembers/{{ $workspace->id }}">
-        @csrf
-        <button class="" type="submit">Gérer les membres</button>
-    </form>
+    @foreach($user->workspaces as $workspace)
+        @if ($workspace->pivot->isAdmin == 1 || $workspace->pivot->ownership == 1)
+            <form method="GET" action="/managemembers/{{ $workspace->id }}">
+                @csrf
+                <button class="" type="submit">Gérer les membres</button>
+            </form>
+        @endif
+    @endforeach
     @foreach($user->workspaces as $workspace)
         @if ($workspace->pivot->isAdmin == 1 || $workspace->pivot->ownership == 1)
             <form method="GET" action="/editworkspace/{{ $workspace->id }}">
