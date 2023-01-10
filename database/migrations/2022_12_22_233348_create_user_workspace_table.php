@@ -19,6 +19,8 @@ return new class extends Migration
             $table->biginteger('workspace_id')->nullable()->unsigned();
             $table->foreign('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->foreign('workspace_id')->nullable()->references('id')->on('workspaces')->onDelete('cascade');
+            $table->boolean('ownership')->default(0)->onDelete('cascade');
+            $table->boolean('isAdmin')->default(0)->onDelete('cascade');
             //$table->string("workspace_cover_name")->nullable()->onDelete('cascade');
             //$table->string("workspace_cover_path")->nullable()->onDelete('cascade');
             $table->timestamps();
@@ -40,6 +42,8 @@ return new class extends Migration
         Schema::table('user_workspace', function (Blueprint $table) {
             $table->dropColumn('user_id');
             $table->dropColumn('workspace_id');
+            $table->dropColumn('ownership');
+            $table->dropColumn('isAdmin');
             //$table->dropColumn('workspace_cover_name');
             //$table->dropColumn('workspace_cover_path');
         });

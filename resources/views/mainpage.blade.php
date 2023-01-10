@@ -22,12 +22,24 @@
     <br>
     {{ $workspace->workspace_name }}
     <br>
-    <form method="GET" action="/editworkspace/{{ $workspace->id }}">
+    <form method="GET" action="/managemembers/{{ $workspace->id }}">
         @csrf
-        <button class="" type="submit">Modifier le tableau</button>
+        <button class="" type="submit">Gérer les membres</button>
     </form>
-    <form method="POST" action="/deleteworkspace/{{ $workspace->id }}" onclick="return confirm('Vous voulez supprimer le tableau ? (En cliquant sur OK, tout sera supprimé définitivement)')">
-        @csrf
-        <button class="" type="submit">Supprimer le tableau</button>
-    </form>
+    @foreach($user->workspaces as $workspace)
+        @if ($workspace->pivot->isAdmin == 1 || $workspace->pivot->ownership == 1)
+            <form method="GET" action="/editworkspace/{{ $workspace->id }}">
+                @csrf
+                <button class="" type="submit">Modifier le tableau</button>
+            </form>
+        @endif
+    @endforeach
+    @foreach($user->workspaces as $workspace)
+        @if ($workspace->pivot->ownership == 1)
+            <form method="POST" action="/deleteworkspace/{{ $workspace->id }}" onclick="return confirm('Vous voulez supprimer le tableau ? (En cliquant sur OK, tout sera supprimé définitivement)')">
+                @csrf
+                <button class="" type="submit">Supprimer le tableau</button>
+            </form>
+        @endif
+    @endforeach
 @endforeach

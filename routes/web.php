@@ -20,10 +20,18 @@ Route::get('/', function () {
 
 Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
 
-Route::post('/createworkspace', [Mainpage::class, 'createworkspace']);
+Route::post('/createworkspace', [Mainpage::class, 'createWorkspace']);
 
-Route::post('/deleteworkspace/{id}', [Mainpage::class, 'deleteworkspace']);
+Route::post('/deleteworkspace/{id}', [Mainpage::class, 'deleteWorkspace']);
 
-Route::get('/editworkspace/{id}', [Mainpage::class, 'editworkspace']);
+Route::get('/editworkspace/{id}', [Mainpage::class, 'editWorkspace']);
 
-Route::post('/posteditworkspace/{id}', [Mainpage::class, 'posteditworkspace']);
+Route::post('/posteditworkspace/{id}', [Mainpage::class, 'postEditWorkspace']);
+
+Route::get('/managemembers/{id}', [Mainpage::class, 'manageMembers']);
+
+Route::post('/managemembers/{id}', [Mainpage::class, 'postManageMembers']);
+
+Route::post('/addusertoworkspace/{id}', [Mainpage::class, 'addUserToWorkspace']);
+
+Route::post('/removeuserfromworkspace/{id}/{userid}', [Mainpage::class, 'removeUserFromWorkspace']);

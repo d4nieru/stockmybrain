@@ -14,12 +14,12 @@ class Mainpage extends Controller
     {
         $user_id = Auth::id();
 
-        //$user = Classroom::find($user_id);
         $user = User::find($user_id);
+
         return view('mainpage', compact('user'));
     }
 
-    public function createworkspace(Request $request)
+    public function createWorkspace(Request $request)
     {
         $request->validate([
             'workspace_name' => 'required',
@@ -47,12 +47,12 @@ class Mainpage extends Controller
         $workspace_id = $workspace->id;
 
         $user = User::find($user_id);
-        $user->workspaces()->attach($workspace_id);
+        $user->workspaces()->attach($workspace_id, ['ownership' => 1, 'isAdmin' => 1]);
 
         return redirect('/home');
     }
 
-    public function deleteworkspace($id)
+    public function deleteWorkspace($id)
     {
         $workspace = Workspace::findOrFail($id);
 
@@ -73,14 +73,14 @@ class Mainpage extends Controller
         return redirect('/home');
     }
 
-    public function editworkspace($id)
+    public function editWorkspace($id)
     {
         $workspace = Workspace::find($id);
 
         return view('editworkspacepage', compact('workspace'));
     }
 
-    public function posteditworkspace(Request $request, $id)
+    public function postEditWorkspace(Request $request, $id)
     {
         $request->validate([
             'new_workspace_name' => 'sometimes',
@@ -107,5 +107,54 @@ class Mainpage extends Controller
             return back();
 
         }
+    }
+
+    public function manageMembers($id)
+    {
+        $user_id = Auth::id();
+
+        $user = User::find($user_id);
+        $workspace = Workspace::find($id);
+
+        return view('managemembers', compact('user', 'workspace', 'user_id'));
+    }
+
+    public function addUserToWorkspace(Request $request, $id)
+    {
+        $request->validate([
+            'email' => 'required',
+        ]);
+
+        $email = $request->input("email");
+
+        $user = User::where('email', $email)->first();
+
+        if ($user) {
+
+            $user_id = $user->id;
+
+            $workspace = Workspace::find($id);
+
+            $workspace->users()->syncWithoutDetaching($user_id);
+
+            return back();
+            
+        } else {
+
+            return redirect()->back()->with('alert', "L'email n'existe pas dans notre base de données !");
+        }
+
+        
+    }
+
+    public function removeUserFromWorkspace($id, $userid)
+    {
+        $workspace = Workspace::find($id);
+        
+        //echo "ID workspace : ".$id." ID user : ".$userid;
+
+        $workspace->users()->detach($userid);
+        
+        return back();
     }
 }
