@@ -12,6 +12,19 @@
 </form>
 
 <h3>Vos tableaux</h3>
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button class="" type="submit">Se déconnecter</button>
+</form>
+
+<form method="POST" enctype="multipart/form-data" action="/createworkspace">
+    @csrf
+    Nom de l'espace de travail: <input type="text" name="workspace_name">
+    Image de couverture (optionnel): <input type="file" id="workspace_cover" name="workspace_cover" accept="image/png, image/jpeg">
+    <button type="submit">Créer l'espace de travail</button>
+</form>
+
+<h3>Vos tableaux</h3>
 
 @foreach($user->workspaces as $workspace)
     @if($workspace->workspace_cover_name == null)

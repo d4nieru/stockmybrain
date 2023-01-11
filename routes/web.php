@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Mainpage;
 use App\Http\Controllers\UserManagement;
+use App\Http\Controllers\Tasks;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,18 @@ Route::post('/addusertoworkspace/{id}', [UserManagement::class, 'addUserToWorksp
 Route::post('/removeuserfromworkspace/{id}/{listeduserid}/{currentuser}', [UserManagement::class, 'removeUserFromWorkspace']);
 
 Route::post('/transferownership/{id}/{listeduserid}/{currentuser}', [UserManagement::class, 'transferOwnership']);
+
+
+Route::get('/formulaire', [Tasks::class, 'formulaire']);
+
+Route::post('/createtask', [Tasks::class, 'createtask']);
+
+Route::get('/liste', [Tasks::class, 'liste_task']);
+
+// Route::get('/delete', [Tasks::class, 'delete']);
+
+Route::post('/delete/{id}', [Tasks::class, 'delete']);
+
+Route::get('/edit/{id}', [Tasks::class, 'edit']);
+
+Route::post('/edit/{id}', [Tasks::class, 'editid']);
