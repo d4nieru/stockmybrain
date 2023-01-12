@@ -20,6 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Routes pour le controller "Mainpage"
+
 Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
 
 Route::post('/createworkspace', [Mainpage::class, 'createWorkspace']);
@@ -40,14 +42,11 @@ Route::post('/removeuserfromworkspace/{id}/{listeduserid}/{currentuser}', [UserM
 
 Route::post('/transferownership/{id}/{listeduserid}/{currentuser}', [UserManagement::class, 'transferOwnership']);
 
+Route::get('/workspace/{id}', [Mainpage::class, 'accessWorkspace']);
 
-Route::get('/formulaire', [Tasks::class, 'formulaire']);
+// Routes pour le controller "Tasks"
 
-Route::post('/createtask', [Tasks::class, 'createtask']);
-
-Route::get('/liste', [Tasks::class, 'liste_task']);
-
-// Route::get('/delete', [Tasks::class, 'delete']);
+Route::post('/createtask/{workspaceid}', [Tasks::class, 'createtask']);
 
 Route::post('/delete/{id}', [Tasks::class, 'delete']);
 

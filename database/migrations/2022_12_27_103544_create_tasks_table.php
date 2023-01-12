@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            //$table->date('date');
             $table->string('importance');
             $table->string('creator');
             $table->timestamps();

@@ -3,9 +3,9 @@
     <form action="/edit/{{$task["id"]}}" method="post">
         @csrf
 
-        <input type="text" name="nom" placeholder="Nom de la tâche">
+        <input type="text" name="name" placeholder="Nom de la tâche" value="{{ $task->name }}">
 
-        <input type="text" name="description" placeholder="Déscription de la tâche" size="20" maxlength="30">
+        <input type="text" name="description" placeholder="Déscription de la tâche" size="20" maxlength="30" value="{{ $task->description }}">
 
         {{-- <input type="date" name="date" placeholder="Date de création"> --}}
 
@@ -18,6 +18,6 @@
             <option value="Urgence prioritaire">À faire en priorité !</option>
         </select>
 
-        <input type="submit" name='sub' value="Enregistrez">
+        <input type="submit" name='sub' value="Enregistrer la modification">
 
     </form>

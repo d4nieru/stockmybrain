@@ -13,4 +13,9 @@ class Workspace extends Model
     {
         return $this->belongsToMany(User::class, 'user_workspace')->withPivot('ownership', 'isAdmin')->withTimestamps();
     }
+
+    public function tasks()
+    {
+        return $this->belongsToMany(Task::class, 'task_workspace')->withTimestamps();
+    }
 }

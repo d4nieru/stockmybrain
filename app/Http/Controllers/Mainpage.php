@@ -109,5 +109,16 @@ class Mainpage extends Controller
         }
     }
 
+    public function accessWorkspace($id)
+    {
+        $user_id = Auth::id();
+
+        $workspace = Workspace::find($id);
+
+        $user = User::find($user_id);
+
+        return view('tasklist', compact('workspace', 'user', 'user_id'));
+    }
+
     
 }
