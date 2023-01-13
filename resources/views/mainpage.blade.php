@@ -1,8 +1,4 @@
-
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button class="" type="submit">Se déconnecter</button>
-</form>
+@include('nav')
 
 <form method="POST" enctype="multipart/form-data" action="/createworkspace">
     @csrf

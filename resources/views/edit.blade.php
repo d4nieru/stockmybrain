@@ -1,3 +1,4 @@
+@include('nav')
 <h1>Modification de la Tâche</h1>
 
     <form action="/edit/{{$task["id"]}}" method="post">

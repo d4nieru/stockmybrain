@@ -1,3 +1,4 @@
+@include('nav')
 <p>Vous etes en train de modifier le tableau <b>{{ $workspace->workspace_name }}</b> {{ $workspace }} </p>
 <br>
 
