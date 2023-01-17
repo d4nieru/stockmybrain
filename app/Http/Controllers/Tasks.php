@@ -11,7 +11,7 @@ use App\Models\Workspace;
 class Tasks extends Controller
 {
 
-    public function createtask (Request $request, $workspaceid)
+    public function createTask(Request $request, $workspaceid)
     {
 
         $request->validate([
@@ -34,6 +34,7 @@ class Tasks extends Controller
         $task->description = $taskdescr;
         $task->importance = $taskimp;
         $task->creator = $u;
+        $task->status = "Non Fait";
 
         $task->save();
 
@@ -44,7 +45,8 @@ class Tasks extends Controller
 
     }
 
-    public function delete ($id) {
+    public function deleteTask($id) 
+    {
 
         $task = Task::find($id);
 
@@ -53,21 +55,37 @@ class Tasks extends Controller
         return back();
     }
 
-    public function edit ($id) {
+    public function editTask($id) 
+    {
 
         $task = Task::find($id);
 
-        return view("edit", compact("task"));
+        return view("task.editTask", compact("task"));
     }
 
-    public function editid (Request $request, $id) {
-
-
+    public function postEditTask(Request $request, $id)
+    {
         $task = Task::find($id);
         
         $task->name = $request->input("name");
         $task->description = $request->input("description");
         $task->importance = $request->input("importance");
+        $task->save();
+
+        return back();
+    }
+
+    public function changeTaskStatus(Request $request, $id)
+    {
+        $task = Task::find($id);
+
+        $request->validate([
+            "taskStatus"=>"required"
+        ]);
+
+        $taskStatus = $request->input("taskStatus");
+
+        $task->status = $taskStatus;
         $task->save();
 
         return back();

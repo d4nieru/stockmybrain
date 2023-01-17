@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function workspaces()
     {
-        return $this->belongsToMany(Workspace::class, 'user_workspace')->withPivot('ownership', 'isAdmin')->withTimestamps();
+        return $this->belongsToMany(Workspace::class, 'user_workspace')->withPivot('ownership', 'admin')->withTimestamps();
     }
 
     public function tasks()

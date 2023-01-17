@@ -1,6 +1,6 @@
 <h1>Modification de la Tâche</h1>
 
-    <form action="/edit/{{$task["id"]}}" method="post">
+    <form action="/edittask/{{$task["id"]}}" method="post">
         @csrf
 
         <input type="text" name="name" placeholder="Nom de la tâche" value="{{ $task->name }}">
@@ -10,7 +10,7 @@
         {{-- <input type="date" name="date" placeholder="Date de création"> --}}
 
         <select name="importance">
-            <option selected disabled>--Choisissez le type de contrat--</option>
+            <option selected disabled>--Choisissez l'importance de la tâche'--</option>
             <option value="Pas Urgent">Pas urgent</option>
             <option value="Peu Urgent">Peu urgent</option>
             <option value="Urgence">Urgent</option>

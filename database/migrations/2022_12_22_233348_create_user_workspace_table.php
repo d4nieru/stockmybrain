@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->foreign('workspace_id')->nullable()->references('id')->on('workspaces')->onDelete('cascade');
             $table->boolean('ownership')->default(0)->onDelete('cascade');
-            $table->boolean('isAdmin')->default(0)->onDelete('cascade');
+            $table->boolean('admin')->default(0)->onDelete('cascade');
             //$table->string("workspace_cover_name")->nullable()->onDelete('cascade');
             //$table->string("workspace_cover_path")->nullable()->onDelete('cascade');
             $table->timestamps();
@@ -43,7 +43,7 @@ return new class extends Migration
             $table->dropColumn('user_id');
             $table->dropColumn('workspace_id');
             $table->dropColumn('ownership');
-            $table->dropColumn('isAdmin');
+            $table->dropColumn('admin');
             //$table->dropColumn('workspace_cover_name');
             //$table->dropColumn('workspace_cover_path');
         });

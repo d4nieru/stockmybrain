@@ -18,34 +18,28 @@
         @if($workspace->workspace_cover_name == null)
             <img src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg" alt="default-workspace-image">
         @else
-            <img src="{{ asset('storage/uploads/'.$workspace->workspace_cover_name) }}" alt="">
+            <img src="{{ asset('workspaceimgs/'.$workspace->workspace_cover_name) }}" alt="">
         @endif
     </a>
     <br>
-    {{ $workspace->workspace_name }}
+    <h1>{{ $workspace->workspace_name }}</h1>
     <br>
-    @foreach($user->workspaces as $workspace)
+
+    <form method="GET" action="/managemembers/{{ $workspace->id }}">
+        @csrf
+        <button class="" type="submit">Gérer les membres</button>
+    </form>
+
     @if ($workspace->pivot->isAdmin == 1 || $workspace->pivot->ownership == 1)
         <form method="GET" action="/editworkspace/{{ $workspace->id }}">
             @csrf
             <button class="" type="submit">Modifier le tableau</button>
         </form>
     @endif
-    @endforeach
-    @foreach($user->workspaces as $workspace)
-        @if ($workspace->pivot->isAdmin == 1 || $workspace->pivot->ownership == 1)
-            <form method="GET" action="/managemembers/{{ $workspace->id }}">
-                @csrf
-                <button class="" type="submit">Gérer les membres</button>
-            </form>
-        @endif
-    @endforeach
-    @foreach($user->workspaces as $workspace)
-        @if ($workspace->pivot->ownership == 1)
-            <form method="POST" action="/deleteworkspace/{{ $workspace->id }}" onclick="return confirm('Vous voulez supprimer le tableau ? (En cliquant sur OK, tout sera supprimé définitivement)')">
-                @csrf
-                <button class="" type="submit">Supprimer le tableau</button>
-            </form>
-        @endif
-    @endforeach
+    @if ($workspace->pivot->ownership == 1)
+        <form method="POST" action="/deleteworkspace/{{ $workspace->id }}" onclick="return confirm('Vous voulez supprimer le tableau ? (En cliquant sur OK, tout sera supprimé définitivement)')">
+            @csrf
+            <button class="" type="submit">Supprimer le tableau</button>
+        </form>
+    @endif
 @endforeach

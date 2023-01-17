@@ -11,11 +11,11 @@ class Task extends Model
 
     public function workspaces()
     {
-        return $this->belongsToMany(Workspace::class, 'user_workspace')->withPivot('ownership', 'isAdmin')->withTimestamps();
+        return $this->belongsToMany(Workspace::class, 'user_workspace')->withPivot('ownership', 'admin')->withTimestamps();
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_workspace')->withPivot('ownership', 'isAdmin')->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_workspace')->withPivot('ownership', 'admin')->withTimestamps();
     }
 }

@@ -20,9 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 // Routes pour le controller "Mainpage"
 
 Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
+
+Route::get('/workspace/{id}', [Mainpage::class, 'accessWorkspace']);
 
 Route::post('/createworkspace', [Mainpage::class, 'createWorkspace']);
 
@@ -32,24 +36,32 @@ Route::get('/editworkspace/{id}', [Mainpage::class, 'editWorkspace']);
 
 Route::post('/posteditworkspace/{id}', [Mainpage::class, 'postEditWorkspace']);
 
+
+
+// Routes pour le controller "UserManagement"
+
 Route::get('/managemembers/{id}', [UserManagement::class, 'manageMembers']);
 
 Route::post('/managemembers/{id}', [UserManagement::class, 'postManageMembers']);
 
 Route::post('/addusertoworkspace/{id}', [UserManagement::class, 'addUserToWorkspace']);
 
-Route::post('/removeuserfromworkspace/{id}/{listeduserid}/{currentuser}', [UserManagement::class, 'removeUserFromWorkspace']);
+Route::post('/removeuserfromworkspace/{id}/{listeduserid}', [UserManagement::class, 'removeUserFromWorkspace']);
 
-Route::post('/transferownership/{id}/{listeduserid}/{currentuser}', [UserManagement::class, 'transferOwnership']);
+Route::post('/transferownership/{id}/{listeduserid}', [UserManagement::class, 'transferOwnership']);
 
-Route::get('/workspace/{id}', [Mainpage::class, 'accessWorkspace']);
+Route::post('/changerole/{id}/{listeduserid}', [UserManagement::class, 'changeRole']);
+
+
 
 // Routes pour le controller "Tasks"
 
-Route::post('/createtask/{workspaceid}', [Tasks::class, 'createtask']);
+Route::post('/createtask/{workspaceid}', [Tasks::class, 'createTask']);
 
-Route::post('/delete/{id}', [Tasks::class, 'delete']);
+Route::post('/deletetask/{id}', [Tasks::class, 'deleteTask']);
 
-Route::get('/edit/{id}', [Tasks::class, 'edit']);
+Route::get('/edittask/{id}', [Tasks::class, 'editTask']);
 
-Route::post('/edit/{id}', [Tasks::class, 'editid']);
+Route::post('/edittask/{id}', [Tasks::class, 'postEditTask']);
+
+Route::post('/changetaskstatus/{id}', [Tasks::class, 'changeTaskStatus']);

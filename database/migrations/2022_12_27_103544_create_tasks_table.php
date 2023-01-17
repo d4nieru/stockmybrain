@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('importance');
             $table->string('creator');
+            $table->string('status');
             $table->timestamps();
         });
     }
