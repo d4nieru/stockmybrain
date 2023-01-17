@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 // Routes pour le controller "Mainpage"
 
-Route::get('/home', [Mainpage::class, 'home'])->middleware('auth');
+Route::get('/dashboard', [Mainpage::class, 'dashboard'])->middleware('auth');
 
 Route::get('/workspace/{id}', [Mainpage::class, 'accessWorkspace']);
 

@@ -1,8 +1,5 @@
-
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button class="" type="submit">Se déconnecter</button>
-</form>
+@extends('components.layout')
+@section('content')
 
 <form method="POST" action="/createtask/{{ $workspace->id }}">
     @csrf
@@ -74,3 +71,5 @@
     <br>
     <br>
 @endforeach
+
+@endsection

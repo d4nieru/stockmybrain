@@ -1,3 +1,6 @@
+@extends('components.layout')
+@section('content')
+
 <h1>Modification de la Tâche</h1>
 
     <form action="/edittask/{{$task["id"]}}" method="post">
@@ -21,3 +24,5 @@
         <input type="submit" name='sub' value="Enregistrer la modification">
 
     </form>
+
+@endsection

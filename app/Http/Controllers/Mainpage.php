@@ -6,19 +6,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Workspace;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Image;
 
 class Mainpage extends Controller
 {
-    public function home()
+    public function dashboard()
     {
+        $title = "Page d'Accueil | Stock My Brain";
+
         $user_id = Auth::id();
 
         $user = User::find($user_id);
 
-        return view('home.mainpage', compact('user'));
+        return view('dashboard.dashboard', compact('title', 'user'));
     }
 
     public function createWorkspace(Request $request)
@@ -88,7 +89,9 @@ class Mainpage extends Controller
     {
         $workspace = Workspace::find($id);
 
-        return view('workspace.editWorkspace', compact('workspace'));
+        $title = $workspace->workspace_name." | Stock My Brain";
+
+        return view('workspace.editWorkspace', compact('title', 'workspace'));
     }
 
     public function postEditWorkspace(Request $request, $id)
@@ -130,7 +133,7 @@ class Mainpage extends Controller
 
             Workspace::where('id', $id)->update(['workspace_cover_name' => $workspace_cover_name, 'workspace_cover_path' => $workspace_cover_path]);
 
-            return redirect('/home');
+            return redirect('/dashboard');
 
         } else {
 
@@ -144,10 +147,12 @@ class Mainpage extends Controller
 
         $workspace = Workspace::find($id);
 
+        $title = $workspace->workspace_name." | Stock My Brain";
+
         $user = User::all();
 
         $connectedUser = User::find($user_id);
 
-        return view('task.taskList', compact('workspace', 'user', 'user_id', 'connectedUser'));
+        return view('task.taskList', compact('title', 'workspace', 'user', 'user_id', 'connectedUser'));
     }
 }

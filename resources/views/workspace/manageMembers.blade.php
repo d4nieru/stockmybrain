@@ -1,3 +1,6 @@
+@extends('components.layout')
+@section('content')
+
 <p>Vous etes en train de modifier le tableau <b>{{ $workspace->workspace_name }}</b> {{ $workspace }} </p>
 <br>
 
@@ -70,3 +73,5 @@
     @endforeach
     
 @endforeach
+
+@endsection

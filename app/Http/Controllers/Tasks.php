@@ -57,10 +57,11 @@ class Tasks extends Controller
 
     public function editTask($id) 
     {
-
         $task = Task::find($id);
 
-        return view("task.editTask", compact("task"));
+        $title = $task->name." | Stock My Brain";
+
+        return view("task.editTask", compact('title', 'task'));
     }
 
     public function postEditTask(Request $request, $id)

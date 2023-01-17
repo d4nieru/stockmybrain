@@ -11,13 +11,15 @@ class UserManagement extends Controller
 {
     public function manageMembers($id)
     {
+        $title = "Gérer les Membres | Stock My Brain";
+
         $user_id = Auth::id();
 
         $user = User::find($user_id);
 
         $workspace = Workspace::find($id);
 
-        return view('workspace.manageMembers', compact('user', 'workspace', 'user_id'));
+        return view('workspace.manageMembers', compact('title', 'user', 'workspace', 'user_id'));
     }
 
     public function addUserToWorkspace(Request $request, $id)
