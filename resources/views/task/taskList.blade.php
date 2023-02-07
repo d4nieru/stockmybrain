@@ -32,7 +32,7 @@
         <b>Etat :</b> {{$task->status}}
 
         @foreach ($connectedUser->workspaces as $u)
-            //Si l'utilisateur est propriétaire du tableau, il aura une option en plus dans le menu déroulant
+            {{-- Si l'utilisateur est propriétaire du tableau, il aura une option en plus dans le menu déroulant --}}
             @if($u->pivot->ownership == 1)
                 <form method="POST" action="/changetaskstatus/{{ $task["id"] }}">
                     @csrf

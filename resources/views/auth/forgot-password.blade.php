@@ -3,13 +3,12 @@
     {{ session('status') }}
 @endif
 
-<form method="POST" action="/login">
+<form method="POST" action="/forgot-password">
     @csrf
     Email: <input type="text" name="email"><br>
-    Mot de Passe: <input type="password" name="password"><br>
-    <button type="submit">Se connecter</button>
-    <a href="/forgot-password">Mot de passe oublié ?</a>
+    <button type="submit">Poursuivre</button>
 </form>
+
 
 <hr>
 

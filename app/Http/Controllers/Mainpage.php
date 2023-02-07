@@ -79,7 +79,7 @@ class Mainpage extends Controller
             */
         }
 
-        $workspace->users()->detach();
+        //$workspace->users()->detach();
         $workspace->delete();
 
         return back();

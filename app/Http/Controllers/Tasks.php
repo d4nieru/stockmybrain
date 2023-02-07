@@ -38,7 +38,7 @@ class Tasks extends Controller
 
         $task->save();
 
-        $workspace = Workspace::find($user_id);
+        $workspace = Workspace::find($workspaceid);
         $workspace->tasks()->attach($workspaceid, ['task_id' => $task->id, 'user_id' => $user_id]);
 
         return back();

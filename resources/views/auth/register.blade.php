@@ -1,6 +1,4 @@
 
-<a href="/"> < Retour à la page d'accueil</a>
-
 <form method="POST" action="/register">
     @csrf
     Nom: <input type="text" name="name"><br>
@@ -17,3 +15,5 @@
         <li>{{ $error }}</li>
     @endforeach
 @endif
+
+@include('components.footer')
