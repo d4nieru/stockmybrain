@@ -4,15 +4,15 @@
 
 **Fonctionnalités :**
 
-- **Créer un ou plusieurs tableaux**
-↘️ *Possibilité d'ajouter une image de couverture.*
-↘️ *Possibilité de changer le nom du tableau.*
+- **Créer un ou plusieurs tableaux**<br>
+↘️ *Possibilité d'ajouter une image de couverture.*<br>
+↘️ *Possibilité de changer le nom du tableau.*<br>
 
-- **Créer un ou plusieurs tâches**
-↘️ *Possibilité de changer le nom de la tâche.*
-↘️ *Possibilité de changer la description de la tâche.*
-↘️ *Possibilité de choisir l'importance de la tâche.*
-↘️ *Possibilité de changer l'etat de la tâche.*
+- **Créer un ou plusieurs tâches**<br>
+↘️ *Possibilité de changer le nom de la tâche.*<br>
+↘️ *Possibilité de changer la description de la tâche.*<br>
+↘️ *Possibilité de choisir l'importance de la tâche.*<br>
+↘️ *Possibilité de changer l'etat de la tâche.*<br>
 
 ## Installation
 
