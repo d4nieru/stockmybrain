@@ -24,9 +24,9 @@ et tapez la commande suivante :
 > "git clone https://github.com/d4nieru/stockmybrain.git"
 2. Ouvrir le dossier du projet avec votre IDE (idéalement VSCode) puis ouvrez le terminal de votre IDE et tapez la commande suivante :
 > "composer install"
-3. Après l'installation des dépendances, tapez la commande suivante :
+3. Copiez collez le fichier **.env.example** et le renommer simplement en **.env**
+4. Tapez la commande suivante :
 > "php artisan key:generate"
-4. Copiez collez le fichier **.env.example** et le renommer simplement en **.env**
 
 5. Dans le fichier **.env**, configurez ces champs pour permettre la connexion vers la base de données :
 
