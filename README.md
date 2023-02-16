@@ -25,6 +25,7 @@ et tapez la commande suivante :
 2. Ouvrir le dossier du projet avec votre IDE (idéalement VSCode) puis ouvrez le terminal de votre IDE et tapez la commande suivante :
 > "composer install"
 3. Copiez collez le fichier **.env.example** et le renommer simplement en **.env**
+
 4. Tapez la commande suivante :
 > "php artisan key:generate"
 
