@@ -1,1 +1,263 @@
+/* ##################################################### NAV BAR */
+
+.site-header {
+    background-color: #262626;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .site-header__button {
+    color: #ffffff;
+    background-color: #141414;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .site-header__button:hover {
+    background-color: #4d4d4d;
+  }
+  
+  .site-header__logo a button {
+    margin-left: 0;
+    background-color: #141414;
+  }
+  
+  .site-header__logo a button:hover {
+    background-color: #4d4d4d;
+  }
+  
+  .site-header__settings a:last-child button {
+    margin-right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .site-header {
+      flex-wrap: wrap;
+    }
+  
+    .site-header__button {
+      margin: 10px 0;
+    }
+  
+    .site-header__menu-btn {
+      display: block;
+    }
+  
+    .site-header__menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #262626;
+      width: 100%;
+      z-index: 1;
+      padding: 10px 0;
+    }
+  
+    .site-header__menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      font-size: 16px;
+      border-bottom: 1px solid #4d4d4d;
+    }
+  }
+  
+  .site-header__menu-btn {
+    display: none;
+  }
+  
+  .site-header__menu-btn:hover {
+    cursor: pointer;
+  }
+  
+  .site-header__menu-btn .btn-line {
+    width: 30px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background-color: #fff;
+  }
+  
+  .site-header__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    background-color: transparent;
+    width: auto;
+    padding: 0;
+  }
+  
+  .site-header__menu a {
+    border-bottom: none;
+  }
+
+
+/* ##################################################### FOOTER */
+  
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #1A1E24;
+    color: #B4B4B4;
+    padding: 20px 0;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .left-col {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .right-col {
+    text-align: center;
+  }
+  
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-links li {
+    margin-right: 15px;
+  }
+  
+  .footer-links li:last-child {
+    margin-right: 0;
+  }
+  
+  .footer-links a {
+    color: #B4B4B4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #FFFFFF;
+  }
+  
+  @media screen and (min-width: 768px) {
+    footer {
+      text-align: left;
+    }
+  
+    .footer-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: unset;
+    }
+  
+    .left-col {
+      text-align: left;
+      margin-bottom: 0;
+    }
+  
+    .right-col {
+      text-align: right;
+    }
+  }
+
+
+/* ##################################################### CONTENT */
+
+/* Styles for create workspace form */
+.create-workspace-form {
+  margin-bottom: 20px;
+}
+
+.create-workspace-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.create-workspace-form input[type="text"],
+.create-workspace-form input[type="file"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.create-workspace-button {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Styles for workspaces list */
+.workspaces-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.workspace-link {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.workspace-image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.workspace-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.manage-members-button,
+.edit-workspace-button,
+.delete-workspace-button {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-workspace-button {
+  background-color: #28a745;
+}
+
+.delete-workspace-button {
+  background-color: #dc3545;
+}
+
+.manage-members-button:hover,
+.edit-workspace-button:hover,
+.delete-workspace-button:hover {
+  background-color: #979797;
+}
+
+/* ######################################################### MAIN PAGE
 
