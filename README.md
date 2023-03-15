@@ -4,15 +4,21 @@
 
 **Fonctionnalités :**
 
-- **Créer un ou plusieurs tableaux**<br>
+- **Créer un ou plusieurs espaces de travail**<br>
 ↘️ *Possibilité d'ajouter une image de couverture.*<br>
-↘️ *Possibilité de changer le nom du tableau.*<br>
+↘️ *Possibilité de changer le nom de l'espace de travail.*<br>
 
 - **Créer un ou plusieurs tâches**<br>
 ↘️ *Possibilité de changer le nom de la tâche.*<br>
 ↘️ *Possibilité de changer la description de la tâche.*<br>
 ↘️ *Possibilité de choisir l'importance de la tâche.*<br>
 ↘️ *Possibilité de changer l'etat de la tâche.*<br>
+
+## Pré-requis
+
+- Un **Environnement de développement** (on vous conseille **[VSCode](https://code.visualstudio.com)**)<br>
+- Un **Serveur Web** (en local, on vous conseille fortement **[Laragon](https://laragon.org/download/index.html)** pour éviter le maximum de soucis, malgré qu'il en existe d'autres tels que XAMPP, WAMP)
+- **[PHP](https://windows.php.net/download)** Version 8.2+ (Thread Safe) (le chemin du dossier **PHP** se trouve dans `\laragon\bin\php`)
 
 ## Installation
 
@@ -21,13 +27,13 @@
 
 et tapez la commande suivante :
 
-> "git clone https://github.com/d4nieru/stockmybrain.git"
+> `git clone https://github.com/d4nieru/stockmybrain.git`
 2. Ouvrir le dossier du projet avec votre IDE (idéalement VSCode) puis ouvrez le terminal de votre IDE et tapez la commande suivante :
-> "composer install"
+> `composer install`
 3. Copiez collez le fichier **.env.example** et le renommer simplement en **.env**
 
 4. Tapez la commande suivante :
-> "php artisan key:generate"
+> `php artisan key:generate`
 
 5. Dans le fichier **.env**, configurez ces champs pour permettre la connexion vers la base de données :
 
@@ -39,11 +45,12 @@ et tapez la commande suivante :
 `DB_PASSWORD=...`
 
 6. Tapez dans le terminal du projet la commande suivante :
-> "php artisan migrate" et **assurez que tout soit bien passé**
+> `php artisan migrate` et **assurez que tout soit bien passé**
 > 
 > (exemple d'une migration effectuée avec succès) :
 
-7. A vos modifications :p
+7. Lancez le projet en faisant la commande suivante :
+> `php artisan serve`
 
 
 
