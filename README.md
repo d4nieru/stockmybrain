@@ -22,13 +22,13 @@
 
 ## Installation
 
-1. Ouvrir le terminal (ou powershell) à l'endroit que vous voulez que le dossier du projet soit 
+1. Ouvrez le terminal (ou powershell) à l'endroit que vous voulez que le dossier du projet soit 
 >Maintenez le bouton SHIFT et clic droit **(en meme temps)** à l'endroit où vous voulez que le dossier du projet soit, vous verrez "Ouvrir la fenetre powershell ici"
 
 et tapez la commande suivante :
 
 > `git clone https://github.com/d4nieru/stockmybrain.git`
-2. Ouvrir le dossier du projet avec votre IDE (idéalement VSCode) puis ouvrez le terminal de votre IDE et tapez la commande suivante :
+2. Ouvrez le dossier du projet avec votre environnement de développement, puis ouvrez le terminal et tapez la commande suivante :
 > `composer install`
 3. Copiez collez le fichier **.env.example** et le renommer simplement en **.env**
 
