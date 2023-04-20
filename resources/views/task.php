@@ -12,7 +12,7 @@
         <x-alert />
     </h3>
     <form action="/upload" method="post">
-        CRÉER UNE TACHE <br><br>
+        CRÉER UNE TACHE: <br><br>
         Nom<input type="text" name="Nom" /><br>
         Texte<input type="text" name="Texte" /><br>
         Date<input type="date" name="Date" /><br>
